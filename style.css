@@ -1,34 +1,90 @@
 body {
-    overflow: hidden;
-    min-height: 100vh;
-    cursor: crosshair;
-    
+  overflow: hidden;
+  min-height: 100vh;
+  cursor: crosshair;
 }
 
 .bubble {
-    position: absolute;
-    border-radius: 300px;
-    background: rgba(255, 166, 0, 0.6); 
-    opacity: 0;
-    animation: anim 8s forwards;
-     filter: hue-rotate(0deg);/* Pour réaliser un changement de couleur selon la roue des couleurs depart 0deg */ 
+  position: absolute;
+  border-radius: 300px;
+  background: rgba(255, 166, 0, 0.6);
+  opacity: 0;
+  animation: anim 8s forwards;
+  filter: hue-rotate(
+    0deg
+  ); /* Pour réaliser un changement de couleur selon la roue des couleurs depart 0deg */
 }
 
-
 @keyframes anim {
-    to {
-        top: -250px;
-        left: var(--left); /* Pour déplacer les bulles de gauche à droite ont injecte une variable pour JS*/
-        opacity: 1;
-        filter: hue-rotate(720deg);/* Pour réaliser un changement de couleur selon la roue des couleurs jusqu'à 720deg */
-    }
-    }
+  to {
+    top: -250px;
+    left: var(
+      --left
+    ); /* Pour déplacer les bulles de gauche à droite ont injecte une variable pour JS*/
+    opacity: 1;
+    filter: hue-rotate(
+      720deg
+    ); /* Pour réaliser un changement de couleur selon la roue des couleurs jusqu'à 720deg */
+  }
+}
 
-    h3 {
-        font-size: 10rem;
-        text-align: right;
-        margin-top: 20px;
-        margin-right: 50px;
-        color: rgba(128, 128, 128, 0.557)
-        ;
-    }
+h3 {
+  font-size: 48px; /* Augmenter la taille de la police pour plus de visibilité */
+  color: #007bff; /* Changer la couleur pour une teinte bleue plus vive */
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px #000; /* Ajouter une ombre pour donner de la profondeur */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Ajouter un fond légèrement transparent */
+  border-radius: 10px; /* Arrondir les bords */
+  padding: 10px 0; /* Ajouter un peu de padding vertical */
+  width: 200px; /* Définir une largeur fixe */
+  margin-left: auto; /* Centrer le compteur horizontalement */
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre externe pour le faire ressortir */
+}
+#startButton {
+  position: fixed; /* Utiliser fixed pour s'assurer que le bouton reste en bas même lors du scroll */
+  left: 50%; /* Centrer le bouton horizontalement */
+  bottom: 20px; /* Positionner le bouton à 20px du bas de la page */
+  transform: translateX(
+    -50%
+  ); /* Décaler le bouton de 50% de sa propre largeur pour un centrage parfait */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+#startButton:hover {
+  background-color: #0056b3;
+}
+
+#messageDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Prend toute la hauteur de la vue */
+  width: 100vw; /* Prend toute la largeur de la vue */
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px; /* Taille de la police */
+  color: black; /* Couleur du texte */
+
+  font-family: Arial, sans-serif; /* Police de caractères */
+}
+
+#showScoresBtn {
+  display: none;
+  z-index: 1100;
+}
